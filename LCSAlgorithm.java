@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class LCSAlgorithm {
     
     protected UserFile f1;
@@ -17,8 +19,6 @@ public class LCSAlgorithm {
     public String findLCS(){
         // build the table with f1 + 1 columns, f2 + 1 rows
         int [][] table = new int[totalLines(f1)+1][totalLines(f2)+1];
-        System.out.println("Dimensions are " + table.length + " and " + table[0].length);
-        // [rows][columns]
 
         // for each cell, check if that line matches
             // if match, compare left, up, diagonal+1
@@ -32,7 +32,22 @@ public class LCSAlgorithm {
                 }
                 else{// compare left, up, (diagonal if match)
                     // filler
-                    table[i][j] = 5;
+                    int left = table[i-1][j];
+                    int top = table[i][j-1];
+                    int biggest = top; // default to top
+                    if (left > top)
+                        biggest = left; // change to left if larger
+                    
+                    if (f1.lines.get(i-1).equals(f2.lines.get(j-1))){
+                        int diagonal = table[i-1][j-1];
+                        if (diagonal+1 >= biggest)
+                            biggest = diagonal+1; // change to diagonal+1 if strings are equal AND diagonal+1 is larger
+                    }
+
+                    table[i][j] = biggest;
+
+                    //System.out.println(printTable(table));
+
                 }
             } 
         }
