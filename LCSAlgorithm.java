@@ -11,7 +11,7 @@ public class LCSAlgorithm {
         f1 = file1;
         f2 = file2;
         t = findLCS();
-        commonLines = retrival(t);
+        commonLines = retrieval(t);
     }
 
     // Gets the number of lines in the given file
@@ -73,7 +73,7 @@ public class LCSAlgorithm {
     // input: LCS solved table
     // output String Array
     // indexes from end of table
-    private String[] retrival(int[][] table)
+    private String[] retrieval(int[][] table)
     {
         int i = table.length -1;
         int j = table[i].length -1;
