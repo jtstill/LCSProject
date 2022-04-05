@@ -187,13 +187,14 @@ public class LCSAlgorithm {
     // toString method
     @Override
     public String toString(){
-        System.out.println("# of common lines: " + numOfCommonLines());
-        System.out.println("Common lines are: \n" + formattedPrint(commonLines) + "\n");
+        String output = "";
+        output += "# of common lines: " + numOfCommonLines() + "\n";
+        output += "Common lines are: \n" + formattedPrint(commonLines) + "\n \n";
         
-        System.out.println(feedback(f1, "file 1"));
-        System.out.println(feedback(f2, "file 2"));
+        output += feedback(f1, "file 1") + "\n";
+        output += feedback(f2, "file 2") + "\n";
 
 
-        return "";
+        return output;
     }
 }

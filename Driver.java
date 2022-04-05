@@ -16,6 +16,6 @@ public class Driver {
     
             LCSAlgorithm example = new LCSAlgorithm(testfile1, testfile2);
             //System.out.println(example.findLCS());
-            example.toString();
+            System.out.println(example.toString());
         }
     }
