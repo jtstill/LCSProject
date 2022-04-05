@@ -150,6 +150,8 @@ public class LCSAlgorithm {
         
         return result;
     }
+
+    // takes file to compare and a file name
     private String feedback(UserFile feedFile, String fileName)
     {
         int fileIndex = 0;
@@ -158,16 +160,19 @@ public class LCSAlgorithm {
         
         while(fileIndex < totalLines(feedFile))
         {
+            // if there are still strings in lCS and file line ==  LCS line
             if (stringIndex < commonLines.length && 
                 feedFile.lines.get(fileIndex).equals(commonLines[stringIndex]))
             {
                 feedback += feedFile.lines.get(fileIndex) + " | is in both files \n";
                 stringIndex++;
             }
+            // else it is a unique line
             else
             {
                 feedback += feedFile.lines.get(fileIndex) + " | is only in " + fileName + "\n";
             }
+            // iterate through file Index every time
             fileIndex++;
         }
         return feedback;
@@ -193,7 +198,6 @@ public class LCSAlgorithm {
         
         output += feedback(f1, "file 1") + "\n";
         output += feedback(f2, "file 2") + "\n";
-
 
         return output;
     }
