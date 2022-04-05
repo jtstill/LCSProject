@@ -64,23 +64,9 @@ public class LCSAlgorithm {
         }
 
         // print here for now
-        System.out.println("Printing table:");
-        System.out.println(printTable(table));
+        // System.out.println("Printing table:");
+        // System.out.println(printTable(table));
 
-        // retrieve string array of LCS
-        //String[] temp = retrival(table);
-        
-        // temporary print the array
-        // for (String lines: temp) {
-        //     System.out.println(lines);
-        // }
-
-        // recover information, starting at last cell
-            // if left or up is equal to current cell, don't add and move (tiebreaker defaults to up)
-            // if left or up are both less than current cell, go diagonal AND add to beginning of LCS
-            // go until you hit 0
-        
-        // return "";
         return table;
     }
 
