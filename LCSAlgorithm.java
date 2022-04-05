@@ -150,12 +150,27 @@ public class LCSAlgorithm {
         
         return result;
     }
-    private String[] feedback(UserFile feedFile)
+    private String feedback(UserFile feedFile, String fileName)
     {
         int fileIndex = 0;
         int stringIndex = 0;
+        String feedback = "Feedback for " + fileName + " is: \n" ;
         
-        return commonLines;
+        while(fileIndex < totalLines(feedFile))
+        {
+            if (stringIndex < commonLines.length && 
+                feedFile.lines.get(fileIndex).equals(commonLines[stringIndex]))
+            {
+                feedback += feedFile.lines.get(fileIndex) + " | is in both files \n";
+                stringIndex++;
+            }
+            else
+            {
+                feedback += feedFile.lines.get(fileIndex) + " | is only in " + fileName + "\n";
+            }
+            fileIndex++;
+        }
+        return feedback;
     }
 
     private String formattedPrint(String [] arr)
@@ -172,9 +187,12 @@ public class LCSAlgorithm {
     // toString method
     @Override
     public String toString(){
-        System.out.println("# of lines: " + numOfCommonLines());
-        System.out.println("Common lines are: \n" + formattedPrint(commonLines));
+        System.out.println("# of common lines: " + numOfCommonLines());
+        System.out.println("Common lines are: \n" + formattedPrint(commonLines) + "\n");
         
+        System.out.println(feedback(f1, "file 1"));
+        System.out.println(feedback(f2, "file 2"));
+
 
         return "";
     }
